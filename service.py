@@ -54,7 +54,6 @@ def is_new_feed(feed):
 def process_feed(feed):
     global sql_cursor
 
-    print("Process {}".format(feed.feed_id))
     id = feed.feed_id
     artist = feed.artist.account_no
     body = feed.body
@@ -88,15 +87,12 @@ def is_new_artist(artist):
 
 def process_artists(artists):
     global sql_cursor
-    print(artists)
     for acc_no in artists:
         if not is_new_artist(artists[acc_no]):
             # already exists, update
-            print("?")
             sql_cursor.execute("UPDATE Artist SET nickname = ? WHERE account_no = ?", (artists[acc_no].nickname, acc_no))
         else:
             # create artist
-            print("!")
             sql_cursor.execute("INSERT INTO Artist VALUES (?, ?)", (acc_no, artists[acc_no].nickname))
         
 
@@ -195,7 +191,6 @@ def load_prev():
     next = 0.0
     
     feeds = []
-    print("Hi?")
     while True:
         added, next = fns_module.LoadFeed(config.FNS_PLANET, next = next)
         if len(added) == 0:
