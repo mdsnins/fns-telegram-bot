@@ -117,7 +117,7 @@ def __send_feed(data):
             time.sleep(1.5)
             continue
         break
-    time.sleep(0.1)
+    time.sleep(0.5)
 
 def send_raw_feed(feed, attachments):
     global fns_module
