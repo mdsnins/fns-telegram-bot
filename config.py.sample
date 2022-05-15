@@ -1,0 +1,11 @@
+UNIVERSE_MODE = "REFRESH" # Either "REFRESH" or "ACCESS"
+UNIVERSE_ACCESS_TOKEN = ""
+UNIVERSE_REFRESH_TOKEN = ""
+
+FNS_PLANET = "" # Planet ID
+FNS_DB = "fns.db"
+FNS_DATA_DIR = "fns_data/"
+FNS_REFRESH_DURATION = 5
+
+TELEGRAM_BOT_TOKEN = "" # Your Telegram Bot API Key
+TELEGRAM_BOT_CHATID = "" # Telegram Chat ID
