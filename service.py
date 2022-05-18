@@ -34,6 +34,10 @@ def init():
 def save_image(aid, url):
     file_path = "{}{}.jpeg".format(config.FNS_DATA_DIR, aid)
     r = requests.get(url, allow_redirects = True)
+    
+    if r.status_code != 200:
+        return None
+    
     f = open(file_path, "wb")
     f.write(r.content)
     f.close()
@@ -61,7 +65,13 @@ def process_feed(feed):
     _attachment = []
     for aid, attachment in feed.attachments.items():
         if attachment.type == "image":
-            save_path = save_image(aid, attachment.file)
+            save_path = ""
+            while True:
+                save_path = save_image(aid, attachment.file)
+                if save_path:
+                    break
+                print("Cloudfront download error, retry in 5 secondes")
+                time.sleep(5)
             sql_cursor.execute("INSERT INTO Attachment VALUES (?, 'image', ?)", (aid, save_path))
             _attachment.append((aid, save_path))
         else:
