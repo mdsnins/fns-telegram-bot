@@ -215,7 +215,6 @@ def update():
     next = 0.0
 
     feeds = []
-    added, next = fns_module.LoadFeed(config.FNS_PLANET, next = 0.0)
 
     while True:
         escape = False
