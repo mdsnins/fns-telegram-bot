@@ -2,6 +2,12 @@
 Telegram bot implementation of UNIVERSE FNS<br>
 For detail about UNIVERSE implementation, please refer [py-universe](https://github.com/mdsnins/py-universe)
 
+# Requirements
+
+1. [py-universe](https://github.com/mdsnins/py-universe)
+2. python-telegram-bot
+3. ffmpeg
+
 ## Configuration
 
 1. Write `config.py` referring  [config.py.sample](./config.py.sample)

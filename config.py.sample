@@ -1,3 +1,5 @@
+DEBUG = 0 # 0 for normal, 1 for verbose, and 2 for debug dryrun
+
 UNIVERSE_MODE = "REFRESH" # Either "REFRESH" or "ACCESS"
 UNIVERSE_ACCESS_TOKEN = ""
 UNIVERSE_REFRESH_TOKEN = ""
